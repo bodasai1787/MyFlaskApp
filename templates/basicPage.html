@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style type="text/css">
+    .nav-bar ul {
+        list-style-type: none;
+        background-color: grey;
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+    }
+
+    .nav-bar a {
+        color: white;
+        text-decoration: none;
+        padding: 15px;
+        display: block;
+        text-align: center;
+    }
+
+    .nav-bar a:hover {
+        background-color: darkgrey;
+    }
+
+    .nav-bar li {
+        float: left
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+{% block nav_bar %}
+<nav class="nav-bar">
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Products</a></li>
+        <li><a href="">Contacts</a></li>
+    </ul>
+</nav>
+{% endblock nav_bar %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'basicPage.html' %}
+    
+<!-- title -->
+{% block title%} Text Analyzer {% endblock %}
+
+<!-- head -->
+{% block head %} 
+{{super()}}
+<style>
+    form{
+        height : 500px;
+        width : 600px;
+        border: 2px solid black;
+
+    }
+    .stat-item{
+        height : 50px;
+        width : 100px;
+        margin : 8px;
+        text-align: center;
+        background-color: rgb(205, 218, 222);
+    }
+    /* .charecter{
+       
+    }
+    .sentence{
+        background-color: blue;
+    }
+    .word{
+        background-color: green;
+    }
+    .paragraph{
+        background-color: yellow;
+    } */
+</style>
+{% endblock %}
+
+<!-- body -->
+{% block body %}
+{{super()}}
+
+<div class="form-container">
+    <div class="d-flex flex-row justify-content-center">
+        <div class="stat-item charecter">Charecters <br>{% if statData :  %} {{statData['charecters']}} {% else %} undefined {% endif %}</div>
+        <div class="stat-item word">Words <br>{% if statData :  %} {{statData['words']}} {% else %} undefined {% endif %}</div>
+        <div class="stat-item sentence">Sentences <br>{%  if statData :  %} {{statData['sentences']}} {% else %} undefined {% endif %}</div>
+        <div class="stat-item paragraph">Paragraphs <br>{% if statData :  %} {{statData['paragraphs']}} {% else %} undefined {% endif %}</div>
+    </div>
+    <form action="/text-analyzer" method="post" class='mx-auto p-3 rounded'>
+        <label for="text-to-analyze" class="form-label">Enter your Text Here:</label>
+        <textarea type="text" name="text-to-analyze" class="form-control w-100" id="text-to-analyze" rows="3" style="height : 300px"></textarea>
+        <button type="submit" value="Submit" class="btn btn-primary w-25 mt-3 mx-auto">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
